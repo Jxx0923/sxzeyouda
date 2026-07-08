@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>全系列矿用检定设备 | 山西泽佑达智控科技有限公司</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+    --main:#0F4C81;
+    --text-dark:#222;
+    --text-normal:#444;
+    --text-light:#777;
+    --bg-page:#F5F7FA;
+    --glass-bg: rgba(255,255,255,0.65);
+    --glass-border: rgba(228,231,237,0.5);
+    --blur: 12px;
+    --shadow: 0 1px 8px rgba(15,76,129,0.06);
+    --radius: 10px;
+}
+body{
+    font-family:"Microsoft YaHei",system-ui,sans-serif;
+    background:var(--bg-page);
+    color:var(--text-normal);
+    line-height:1.7;
+    padding-top:106px;
+}
+a{text-decoration:none;color:inherit}
+.container{
+    width:100%;
+    max-width:1360px;
+    margin:0 auto;
+    padding:0 24px;
+}
+.glass{
+    background:var(--glass-bg);
+    backdrop-filter: blur(var(--blur));
+    -webkit-backdrop-filter: blur(var(--blur));
+    border:1px solid var(--glass-border);
+    border-radius:var(--radius);
+    box-shadow:var(--shadow);
+}
+/* 顶部固定栏 */
+.top-fixed{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    z-index:99;
+}
+.top-bar{
+    background:var(--main);
+    color:#fff;
+    padding:14px 0;
+}
+.top-bar .container{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap:12px;
+}
+.company-brand .cn{
+    font-size:22px;
+    font-weight:600;
+    letter-spacing:0.5px;
+    display:block;
+}
+.company-brand .en{
+    font-size:12px;
+    opacity:0.9;
+    margin-top:4px;
+    display:block;
+}
+.top-right{
+    display:flex;
+    align-items:center;
+    gap:24px;
+    flex-wrap:wrap;
+}
+.tel-item{
+    display:flex;
+    align-items:center;
+    gap:6px;
+    font-size:14px;
+}
+.tel-icon{
+    width:18px;height:18px;
+    background:#fff;
+    color:var(--main);
+    border-radius:50%;
+    display:inline-flex;
+    align-items:center;justify-content:center;
+    font-weight:bold;
+    font-size:12px;
+}
+.search-box{display:flex}
+.search-input{
+    width:170px;height:34px;
+    padding:0 10px;border:none;outline:none;
+    border-radius:var(--radius) 0 0 var(--radius);
+    font-size:13px;
+}
+.search-btn{
+    height:34px;padding:0 14px;
+    background:#083057;color:#fff;border:none;
+    border-radius:0 var(--radius) var(--radius) 0;
+    cursor:pointer;font-size:13px;
+    transition:background 0.24s;
+}
+.search-btn:hover{background:#05203a}
+.nav-wrap{
+    padding:10px 0;
+}
+.nav-wrap .container.glass{
+    padding:12px;
+    display:flex;
+    align-items:center;
+    justify-content:space-evenly;
+}
+.nav-wrap a{
+    font-size:15px;color:var(--text-dark);
+    padding:0 10px;position:relative;
+    transition:color 0.24s;
+}
+.nav-wrap a:hover{color:var(--main)}
+.nav-wrap a:not(:last-child)::after{
+    content:"|";color:#ccc;position:absolute;right:-14px;
+}
+.page-back{
+    margin:16px 0;
+    padding:12px 20px;
+}
+.page-back a{color:var(--main)}
+.search-tip{
+    margin:16px 0;
+    padding:10px 14px;
+}
+/* Bento 产品网格 */
+.product-bento-grid{
+    display:grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap:24px;
+    margin-bottom:40px;
+}
+.cat-title{
+    margin:20px 0 10px;
+    padding:12px 16px;
+    background:var(--main);
+    color:#fff;
+    font-size:18px;
+    border-radius:var(--radius);
+}
+.pro-item{
+    padding:16px;
+}
+.pro-img{
+    width:100%;
+    height:210px;
+    background:#eee;
+    background-size:cover;background-position:center;
+    border-radius:var(--radius);
+    margin-bottom:12px;
+}
+.pro-name{
+    font-size:16px;
+    font-weight:500;
+    color:var(--text-dark);
+    margin-bottom:8px;
+}
+.pro-desc{
+    font-size:13px;
+    color:var(--text-light);
+    line-height:1.6;
+    margin-bottom:12px;
+}
+.pro-link{
+    display:inline-block;
+    padding:7px 14px;
+    background:var(--main);
+    color:#fff;
+    border-radius:var(--radius);
+    font-size:14px;
+    transition:background 0.24s;
+}
+.pro-link:hover{background:#083057}
+.empty{
+    padding:60px 0;
+    text-align:center;
+    color:var(--text-light);
+}
+.empty a{color:var(--main)}
+.footer{
+    background:var(--text-dark);
+    color:#ccc;
+    text-align:center;
+    padding:28px 16px;
+    font-size:12px;
+    line-height:1.8;
+    margin-top:20px;
+}
+@media screen and (max-width:768px){
+    body{padding-top:140px}
+    .nav-wrap .container.glass{flex-wrap:wrap;height:auto;padding:10px 0;gap:8px}
+    .nav-wrap a{font-size:14px}
+    .company-brand .cn{font-size:19px}
+}
+</style>
+</head>
+<body>
+<div class="top-fixed">
+    <div class="top-bar">
+        <div class="container">
+            <div class="company-brand">
+                <span class="cn">山西泽佑达智控科技有限公司</span>
+                <span class="en">Shanxi Zeyouda Intelligent Control Technology Co., Ltd.</span>
+            </div>
+            <div class="top-right">
+                <div class="tel-item">
+                    <span class="tel-icon">☎</span>
+                    <span>17635103248</span>
+                </div>
+                <div class="search-box">
+                    <input class="search-input" id="keyword" placeholder="搜索产品">
+                    <button class="search-btn" onclick="goSearch()">搜索</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="nav-wrap">
+        <div class="container glass">
+            <a href="index.html">首页</a>
+            <a href="#product">产品中心</a>
+            <a href="#honor">荣誉资质</a>
+            <a href="#">技术动态</a>
+            <a href="#about">关于泽佑达</a>
+            <a href="#contact">联系我们</a>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="page-back glass">
+        <a href="index.html">← 返回首页</a>
+    </div>
+    <div id="searchTip" class="search-tip glass"></div>
+
+    <div class="cat-title">一、气体类检定装置（12款）</div>
+    <div class="product-bento-grid">
+        <div class="pro-item glass" data-name="主推型气体检定装置">
+            <div class="pro-img"></div>
+            <div class="pro-name">1.主推型气体检定装置</div>
+            <div class="pro-desc">第六代数字化触摸屏机型，多通道同步检定，矿山实验室标准主力机型。</div>
+            <a href="#" class="pro-link">查看详情</a>
+        </div>
+        <div class="pro-item glass" data-name="便携式气体检定装置">
+            <div class="pro-img"></div>
+            <div class="pro-name">2.便携式气体检定装置</div>
+            <div class="pro-desc">小型便携机身，可下矿现场完成传感器校准，12V供电。</div>
+            <a href="#" class="pro-link">查看详情</a>
+        </div>
+        <div class="pro-item glass" data-name="标准型气体检定装置">
+            <div class="pro-img"></div>
+            <div class="pro-name">3.标准型气体检定装置</div>
+            <div class="pro-desc">计量院通用标准机型，浓度控制精度高。</div>
+            <a href="#" class="pro-link">查看详情</a>
+        </div>
+        <div class="pro-item glass" data-name="车载拉杆便携式气体检定装置">
+            <div class="pro-img"></div>
+            <div class="pro-name">4.车载拉杆便携式气体检定装置</div>
+            <div class="pro-desc">拉杆箱体，车载运输，野外现场校准。</div>
+            <a href="#" class="pro-link">查看详情</a>
+        </div>
+        <div class="pro-item glass" data-name="煤矿用高低浓度甲烷传感器检定装置">
+            <div class="pro-img"></div>
+            <div class="pro-name">5.煤矿用高低浓度甲烷传感器检定装置</div>
+            <div class="pro-desc">覆盖高低甲烷浓度区间，适配催化传感器。</div>
+            <a href="#" class="pro-link">查看详情</a>
+        </div>
+        <div class="pro-item glass" data-name="载体催化燃烧式甲烷语音自动快速检定装置">
+            <div class="pro-img"></div>
+            <div class="pro-name">6.载体催化燃烧式甲烷语音自动快速检定装置</div>
+            <div class="pro-desc">语音播报，全自动时序检测。</div>
+            <a href="#" class="pro-link">查看详情</a>
+        </div>
+        <div class="pro-item glass" data-name="矿用硫化氢气体报警仪检定装置及下排风技术措施">
+            <div class="pro-img"></div>
+            <div class="pro-name">7.矿用硫化氢气体报警仪检定装置（带下排风）</div>
+            <div class="pro-desc">配套下排风废气处理，安全检定硫化氢。</div>
+            <a href="#" class="pro-link">查看详情</a>
+        </div>
+        <div class="pro-item glass" data-name="便携式多功能气体检定装置">
+            <div class="pro-img"></div>
+            <div class="pro-name">8.便携式多功能气体检定装置</div>
+            <div class="pro-desc">一机适配甲烷/CO/H2S多类传感器。</div>
+            <a href="#" class="pro-link">查看详情</a>
+        </div>
+        <div class="pro-item glass" data-name="多功能气体报警仪语音自动检定装置">
+            <div class="pro-img"></div>
+            <div class="pro-name">9.多功能气体报警仪语音自动检定装置</div>
+            <div class="pro-desc">全自动采集报警阈值、响应时间。</div>
+            <a href="#" class="pro-link">查看详情</a>
+        </div>
+        <div class="pro-item glass" data-name="多功能台式矿用气体传感器自动化检定装置 P20">
+            <div class="pro-img"></div>
+            <div class="pro-name">10.多功能台式矿用气体传感器自动化检定装置 P20</div>
+            <div class="pro-desc">台式自动化基础机型，数据自动存储。</div>
+            <a href="#" class="pro-link">查看详情</a>
+        </div>
+        <div class="pro-item glass" data-name="多功能台式矿用气体传感器自动化检定装置 P26">
+            <div class="pro-img"></div>
+            <div class="pro-name">11.多功能台式矿用气体传感器自动化检定装置 P26</div>
+            <div class="pro-desc">26通道大容量，大批量检定。</div>
+            <a href="#" class="pro-link">查看详情</a>
+        </div>
+        <div class="pro-item glass" data-name="光干涉甲烷测定器检定装置">
+            <div class="pro-img"></div>
+            <div class="pro-name">12.光干涉甲烷测定器检定装置</div>
+            <div class="pro-desc">适配光干涉瓦斯检测仪校准。</div>
+            <a href="#" class="pro-link">查看详情</a>
+        </div>
+    </div>
+
+    <div class="cat-title">二、矿用专用传感器检测设备（5款）</div>
+    <div class="product-bento-grid">
+        <div class="pro-item glass" data-name="烟雾传感器检定">
+            <div class="pro-img" style="background:url(img/yanwuchuanganqi.png) center/cover"></div>
+            <div class="pro-name">1.烟雾传感器检定装置</div>
+            <div class="pro-desc">模拟井下烟雾，检测报警响应与阈值。</div>
+            <a href="yanwu-device.html" class="pro-link">查看详情</a>
+        </div>
+        <div class="pro-item glass" data-name="压力液位传感器检定装置">
+            <div class="pro-img"></div>
+            <div class="pro-name">2.压力 \ 液位传感器检定装置</div>
+            <div class="pro-desc">压力液位精准模拟源，校验线性误差。</div>
+            <a href="#" class="pro-link">查看详情</a>
+        </div>
+        <div class="pro-item glass" data-name="矿用温度传感器检定装置">
+            <div class="pro-img" style="background:url(img/kuangyongwenduchuanganqi.png) center/cover"></div>
+            <div class="pro-name">3.矿用温度传感器检定装置</div>
+            <div class="pro-desc">-20~80℃恒温腔体，温控精度±0.1℃。</div>
+            <a href="wendu-device.html" class="pro-link">查看详情</a>
+        </div>
+        <div class="pro-item glass" data-name="气体扩散箱">
+            <div class="pro-img" style="background:url(img/qiti.png) center/cover"></div>
+            <div class="pro-name">4.气体扩散箱</div>
+            <div class="pro-desc">12L不锈钢标准扩散腔体，静态校准。</div>
+            <a href="kuangqi-device.html" class="pro-link">查看详情</a>
+        </div>
+        <div class="pro-item glass" data-name="开停传感器检测装置">
+            <div class="pro-img"></div>
+            <div class="pro-name">5.开停传感器检测装置</div>
+            <div class="pro-desc">模拟设备启停信号校验传感器。</div>
+            <a href="#" class="pro-link">查看详情</a>
+        </div>
+    </div>
+
+    <div class="cat-title">三、自救检测设备（2款）</div>
+    <div class="product-bento-grid">
+        <div class="pro-item glass" data-name="自救器智能多参数综合检测装置">
+            <div class="pro-img"></div>
+            <div class="pro-name">1.自救器智能多参数综合检测装置</div>
+            <div class="pro-desc">气密性、防护时间全自动检测。</div>
+            <a href="#" class="pro-link">查看详情</a>
+        </div>
+        <div class="pro-item glass" data-name="自救器用氢氧化钙检测装置">
+            <div class="pro-img"></div>
+            <div class="pro-name">2.自救器用氢氧化钙检测装置</div>
+            <div class="pro-desc">检测吸收剂有效成分含量。</div>
+            <a href="#" class="pro-link">查看详情</a>
+        </div>
+    </div>
+
+    <div id="empty" class="empty glass" style="display:none">
+        未检索到匹配产品，<a href="index.html">返回首页</a>
+    </div>
+</div>
+
+<div class="footer">
+©2026 山西泽佑达智控科技有限公司 矿用计量检定设备专业制造商 | 统一社会信用代码：91140110MAOLWELP73
+</div>
+
+<script>
+function goSearch(){
+    let val = document.getElementById('keyword').value.trim();
+    if(!val){alert("请输入产品关键词");return}
+    window.location.href = "product.html?key="+encodeURIComponent(val);
+}
+window.onload = function(){
+    const url = new URL(location.href);
+    const key = url.searchParams.get("key");
+    if(!key) return;
+    const tip = document.getElementById("searchTip");
+    tip.style.display="block";
+    tip.innerText = "当前检索关键词："+key;
+    let hasMatch = false;
+    document.querySelectorAll(".pro-item").forEach(item=>{
+        const name = item.getAttribute("data-name");
+        if(name.includes(key)){
+            item.style.display="block";
+            hasMatch = true;
+        }else{
+            item.style.display="none";
+        }
+    })
+    if(!hasMatch) document.getElementById("empty").style.display="block";
+}
+</script>
+</body>
+</html>

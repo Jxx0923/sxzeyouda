@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>烟雾传感器检定装置 | 山西泽佑达智控科技有限公司</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+    --main:#0F4C81;
+    --text-dark:#222;
+    --text-normal:#444;
+    --text-light:#777;
+    --bg-page:#F5F7FA;
+    --glass-bg: rgba(255,255,255,0.65);
+    --glass-border: rgba(228,231,237,0.5);
+    --blur: 12px;
+    --shadow: 0 1px 8px rgba(15,76,129,0.06);
+    --radius: 10px;
+}
+body{
+    font-family:"Microsoft YaHei",system-ui,sans-serif;
+    background:var(--bg-page);
+    color:var(--text-normal);
+    line-height:1.7;
+    padding-top:106px;
+}
+a{text-decoration:none;color:inherit}
+.container{
+    width:100%;
+    max-width:1360px;
+    margin:0 auto;
+    padding:0 24px;
+}
+.glass{
+    background:var(--glass-bg);
+    backdrop-filter: blur(var(--blur));
+    -webkit-backdrop-filter: blur(var(--blur));
+    border:1px solid var(--glass-border);
+    border-radius:var(--radius);
+    box-shadow:var(--shadow);
+}
+.top-fixed{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    z-index:99;
+}
+.top-bar{
+    background:var(--main);
+    color:#fff;
+    padding:14px 0;
+}
+.top-bar .container{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap:12px;
+}
+.company-brand .cn{
+    font-size:22px;
+    font-weight:600;
+    letter-spacing:0.5px;
+    display:block;
+}
+.company-brand .en{
+    font-size:12px;
+    opacity:0.9;
+    margin-top:4px;
+    display:block;
+}
+.top-right{
+    display:flex;
+    align-items:center;
+    gap:24px;
+    flex-wrap:wrap;
+}
+.tel-item{
+    display:flex;
+    align-items:center;
+    gap:6px;
+    font-size:14px;
+}
+.tel-icon{
+    width:18px;height:18px;
+    background:#fff;
+    color:var(--main);
+    border-radius:50%;
+    display:inline-flex;
+    align-items:center;justify-content:center;
+    font-weight:bold;
+    font-size:12px;
+}
+.search-box{display:flex}
+.search-input{
+    width:170px;height:34px;
+    padding:0 10px;border:none;outline:none;
+    border-radius:var(--radius) 0 0 var(--radius);
+    font-size:13px;
+}
+.search-btn{
+    height:34px;padding:0 14px;
+    background:#083057;color:#fff;border:none;
+    border-radius:0 var(--radius) var(--radius) 0;
+    cursor:pointer;font-size:13px;
+    transition:background 0.24s;
+}
+.search-btn:hover{background:#05203a}
+.nav-wrap{
+    padding:10px 0;
+}
+.nav-wrap .container.glass{
+    padding:12px;
+    display:flex;
+    align-items:center;
+    justify-content:space-evenly;
+}
+.nav-wrap a{
+    font-size:15px;color:var(--text-dark);
+    padding:0 10px;position:relative;
+    transition:color 0.24s;
+}
+.nav-wrap a:hover{color:var(--main)}
+.nav-wrap a:not(:last-child)::after{
+    content:"|";color:#ccc;position:absolute;right:-14px;
+}
+.back-link{
+    margin:16px 0;
+    padding:12px 20px;
+}
+.back-link a{color:var(--main)}
+/* Bento 详情布局 */
+.detail-bento{
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    gap:24px;
+    padding:30px;
+    margin-bottom:30px;
+}
+.pro-img{
+    width:100%;
+    height:400px;
+    object-fit:cover;
+    border-radius:var(--radius);
+}
+.pro-title{
+    font-size:26px;
+    font-weight:600;
+    color:var(--text-dark);
+    margin-bottom:16px;
+}
+.pro-desc{
+    line-height:2;
+    margin-bottom:20px;
+}
+.tel-tip{
+    padding:10px 14px;
+    background:rgba(15,76,129,0.08);
+    border-radius:var(--radius);
+    color:var(--main);
+    font-weight:500;
+}
+.sub-title{
+    font-size:18px;
+    font-weight:600;
+    color:var(--main);
+    margin:32px 0 12px;
+    border-left:4px solid var(--main);
+    padding-left:10px;
+}
+.param-table{
+    width:100%;
+    border-collapse:collapse;
+}
+.param-table th,.param-table td{
+    border:1px solid var(--glass-border);
+    padding:12px;
+    text-align:center;
+}
+.param-table th{background:rgba(15,76,129,0.05)}
+.adv-text{line-height:1.9}
+.footer{
+    background:var(--text-dark);
+    color:#ccc;
+    text-align:center;
+    padding:28px 16px;
+    font-size:12px;
+    line-height:1.8;
+    margin-top:40px;
+}
+@media screen and (max-width:768px){
+    body{padding-top:140px}
+    .nav-wrap .container.glass{flex-wrap:wrap;height:auto;padding:10px 0;gap:8px}
+    .nav-wrap a{font-size:14px}
+    .company-brand .cn{font-size:19px}
+    .detail-bento{grid-template-columns:1fr}
+    .pro-img{height:280px}
+}
+</style>
+</head>
+<body>
+<div class="top-fixed">
+    <div class="top-bar">
+        <div class="container">
+            <div class="company-brand">
+                <span class="cn">山西泽佑达智控科技有限公司</span>
+                <span class="en">Shanxi Zeyouda Intelligent Control Technology Co., Ltd.</span>
+            </div>
+            <div class="top-right">
+                <div class="tel-item">
+                    <span class="tel-icon">☎</span>
+                    <span>17635103248</span>
+                </div>
+                <div class="search-box">
+                    <input class="search-input" id="keyword" placeholder="搜索产品">
+                    <button class="search-btn" onclick="goSearch()">搜索</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="nav-wrap">
+        <div class="container glass">
+            <a href="index.html">首页</a>
+            <a href="#product">产品中心</a>
+            <a href="#honor">荣誉资质</a>
+            <a href="#">技术动态</a>
+            <a href="#about">关于泽佑达</a>
+            <a href="#contact">联系我们</a>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="back-link glass">
+        <a href="index.html">← 返回首页</a>
+    </div>
+    <div class="detail-bento glass">
+        <div>
+            <img class="pro-img" src="img/yanwuchuanganqi.png">
+        </div>
+        <div>
+            <h1 class="pro-title">烟雾传感器检定装置</h1>
+            <div class="pro-desc">
+本设备属于矿用专用传感器检测设备大类，是我司三十余款标准化检定设备之一，第六代数字化触摸屏控制系统，模拟井下真实烟雾工况，全自动采集传感器报警阈值、响应时间等计量参数，配套独立废气过滤处理结构，符合矿山安全设备检定行业标准，广泛用于各煤矿、第三方计量检测机构实验室。
+            </div>
+            <div class="tel-tip">咨询采购：朱经理 17635103248</div>
+        </div>
+    </div>
+    <div class="glass" style="padding:24px 30px;margin-bottom:20px;">
+        <h3 class="sub-title">一、设备技术参数</h3>
+        <table class="param-table">
+            <tr>
+                <th>检测通道</th>
+                <td>4通道同步检测</td>
+                <th>控制屏幕</th>
+                <td>10寸工业触控屏</td>
+            </tr>
+            <tr>
+                <th>检测介质</th>
+                <td>标准烟雾气溶胶</td>
+                <th>适用传感器</th>
+                <td>各类矿用本安型烟雾传感器</td>
+            </tr>
+        </table>
+        <h3 class="sub-title">二、产品优势</h3>
+        <div class="adv-text">
+1、第六代数字化触控系统，人机交互友好，设备运行稳定性强；<br>
+2、全自动时序控制，无需人工值守，自动生成可溯源检定报告；<br>
+3、内置下排风废气收集模块，实验室无粉尘、烟雾污染；<br>
+4、支持CNAS计量标准实验室配套使用，满足招投标设备资质；<br>
+5、山西本地厂家，可上门安装调试、配套建标全套资料。
+        </div>
+    </div>
+</div>
+<div class="footer">
+©2026 山西泽佑达智控科技有限公司 矿用计量检定设备专业制造商 | 统一社会信用代码：91140110MAOLWELP73
+</div>
+<script>
+function goSearch(){
+    let val = document.getElementById('keyword').value.trim();
+    if(!val){alert("请输入产品关键词");return;}
+    window.location.href = "product.html?key="+encodeURIComponent(val);
+}
+</script>
+</body>
+</html>
