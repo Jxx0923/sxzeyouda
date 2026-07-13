@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>矿用温度传感器检定装置 | 山西泽佑达智控科技有限公司</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+    --main:#0F4C81;
+    --text-dark:#222;
+    --text-normal:#444;
+    --text-light:#777;
+    --bg-page:#F5F7FA;
+    --glass-bg: rgba(255,255,255,0.65);
+    --glass-border: rgba(228,231,237,0.5);
+    --blur: 12px;
+    --shadow: 0 1px 8px rgba(15,76,129,0.06);
+    --radius: 10px;
+}
+body{
+    font-family:"Microsoft YaHei",system-ui,sans-serif;
+    background:var(--bg-page);
+    color:var(--text-normal);
+    line-height:1.7;
+    padding-top:165px; /* 充足顶部间距，避开固定导航 */
+}
+a{text-decoration:none;color:inherit}
+.container{
+    width:100%;
+    max-width:1360px;
+    margin:0 auto;
+    padding:0 24px;
+}
+.glass{
+    background:var(--glass-bg);
+    backdrop-filter: blur(var(--blur));
+    -webkit-backdrop-filter: blur(var(--blur));
+    border:1px solid var(--glass-border);
+    border-radius:var(--radius);
+    box-shadow:var(--shadow);
+}
+.top-fixed{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    z-index:99;
+}
+.top-bar{
+    background:var(--main);
+    color:#fff;
+    padding:14px 0;
+}
+.top-bar .container{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap:12px;
+}
+.company-brand .cn{
+    font-size:22px;
+    font-weight:600;
+    letter-spacing:0.5px;
+    display:block;
+}
+.company-brand .en{
+    font-size:12px;
+    opacity:0.9;
+    margin-top:4px;
+    display:block;
+}
+.top-right{
+    display:flex;
+    align-items:center;
+    gap:24px;
+    flex-wrap:wrap;
+}
+.tel-item{
+    display:flex;
+    align-items:center;
+    gap:6px;
+    font-size:14px;
+}
+.tel-icon{
+    width:18px;height:18px;
+    background:#fff;
+    color:var(--main);
+    border-radius:50%;
+    display:inline-flex;
+    align-items:center;justify-content:center;
+    font-weight:bold;
+    font-size:12px;
+}
+.search-box{display:flex}
+.search-input{
+    width:170px;height:34px;
+    padding:0 10px;border:none;outline:none;
+    border-radius:var(--radius) 0 0 var(--radius);
+    font-size:13px;
+}
+.search-btn{
+    height:34px;padding:0 14px;
+    background:#083057;color:#fff;border:none;
+    border-radius:0 var(--radius) var(--radius) 0;
+    cursor:pointer;font-size:13px;
+    transition:background 0.24s;
+}
+.search-btn:hover{background:#05203a}
+.nav-wrap{
+    padding:10px 0;
+}
+.nav-wrap .container.glass{
+    padding:12px;
+    display:flex;
+    align-items:center;
+    justify-content:space-evenly;
+}
+.nav-wrap a{
+    font-size:15px;color:var(--text-dark);
+    padding:0 10px;position:relative;
+    transition:color 0.24s;
+}
+.nav-wrap a:hover{color:var(--main)}
+.nav-wrap a:not(:last-child)::after{
+    content:"|";color:#ccc;position:absolute;right:-14px;
+}
+/* Bento 详情两栏布局 */
+.detail-bento{
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    gap:24px;
+    padding:30px;
+    margin-bottom:30px;
+}
+.pro-img{
+    width:100%;
+    height:400px;
+    object-fit:cover;
+    border-radius:var(--radius);
+}
+.pro-title{
+    font-size:26px;
+    font-weight:600;
+    color:var(--text-dark);
+    margin-bottom:16px;
+}
+.pro-desc{
+    line-height:2;
+    margin-bottom:20px;
+}
+/* 醒目红色提示框 */
+.tip-notice{
+    font-size:17px;
+    font-weight:bold;
+    color:#d82828;
+    background:rgba(216,40,40,0.08);
+    padding:10px 14px;
+    border-radius:var(--radius);
+    margin-bottom:16px;
+}
+.tel-tip{
+    padding:10px 14px;
+    background:rgba(15,76,129,0.08);
+    border-radius:var(--radius);
+    color:var(--main);
+    font-weight:500;
+}
+.sub-title{
+    font-size:20px;
+    font-weight:600;
+    color:var(--main);
+    margin:0 0 18px;
+    border-left:4px solid var(--main);
+    padding-left:12px;
+}
+/* 参数两列表格 */
+.param-table{
+    width:100%;
+    border-collapse: collapse;
+    font-size:16px;
+}
+.param-table td{
+    border:1px solid var(--glass-border);
+    padding:12px 16px;
+}
+.param-table td:first-child{
+    background:rgba(15,76,129,0.08);
+    font-weight:500;
+    width:32%;
+}
+/* 装置特点有序列表 */
+.feature-list{
+    font-size:16px;
+    line-height:1.8;
+    padding-left:10px;
+}
+.feature-list li{
+    margin-bottom:12px;
+}
+.footer{
+    background:var(--text-dark);
+    color:#ccc;
+    text-align:center;
+    padding:28px 16px;
+    font-size:12px;
+    line-height:1.8;
+    margin-top:40px;
+}
+/* 右下角悬浮返回按钮 */
+.float-back-home{
+    position:fixed;
+    right:30px;
+    bottom:30px;
+    z-index:998;
+    width:140px;
+    text-align:center;
+    padding:12px 0;
+    background:var(--main);
+    color:#fff;
+    border-radius:var(--radius);
+    font-size:15px;
+    transition:background 0.24s;
+}
+.float-back-home:hover{
+    background:#083057;
+}
+@media screen and (max-width:768px){
+    body{padding-top:180px; /* 手机端加高顶部间距 */}
+    .nav-wrap .container.glass{flex-wrap:wrap;height:auto;padding:10px 0;gap:8px}
+    .nav-wrap a{font-size:14px}
+    .company-brand .cn{font-size:19px}
+    .detail-bento{grid-template-columns:1fr}
+    .pro-img{height:280px}
+    .float-back-home{
+        width:120px;
+        right:20px;
+        bottom:20px;
+    }
+    .param-table td{
+        padding:10px 8px;
+        font-size:14px;
+    }
+}
+</style>
+</head>
+<body>
+<div class="top-fixed">
+    <div class="top-bar">
+        <div class="container">
+            <div class="company-brand">
+                <span class="cn">山西泽佑达智控科技有限公司</span>
+                <span class="en">Shanxi Zeyouda Intelligent Control Technology Co., Ltd.</span>
+            </div>
+            <div class="top-right">
+                <div class="tel-item">
+                    <span class="tel-icon">☎</span>
+                    <span>18335178154</span>
+                </div>
+                <div class="search-box">
+                    <input class="search-input" id="keyword" placeholder="搜索产品">
+                    <button class="search-btn" onclick="goSearch()">搜索</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="nav-wrap">
+    <div class="container glass">
+        <a href="index.html">首页</a>
+        <a href="product.html">产品中心</a>
+        <a href="honor-list.html">荣誉资质</a>
+        <a href="tech-news.html">技术动态</a>
+        <a href="about-us.html">关于泽佑达</a>
+        <a href="index.html#contact">联系我们</a>
+    </div>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <!-- 顶部两栏图文卡片 -->
+    <div class="detail-bento glass">
+        <div>
+            <img class="pro-img" src="img/kuangyongwenduchuanganqi.png" alt="矿用温度传感器检定装置">
+        </div>
+        <div>
+            <h1 class="pro-title">矿用温度传感器检定装置</h1>
+            <div class="pro-desc">
+专门针对煤矿及矿山井下环境中使用的温度传感器，进行定期校准、检测检验与调校，以确保其测温准确可靠。覆盖煤矿安全生产检测检验机构、矿务局、煤矿安全仪器计量站、各级计量技术机构，以及温度传感器制造商用于出厂检验。用于传感器的定期调校、检测检验、校准及出厂检验。执行标准《JJG(晋)15-2014矿用温度传感器检定规程》，可一次性完成多路温度传感器全项目检定，配套智能温控系统，温控精度高、稳定速度快，广泛应用于矿山计量实验室、第三方检测机构。
+            </div>
+            <div class="tip-notice">以下均为标准款参数，有其他需求可联系我方</div>
+            <div class="tel-tip">咨询采购：张经理 18335178154</div>
+        </div>
+    </div>
+
+    <!-- 一、设备技术参数 独立卡片两列表格 -->
+    <div class="glass" style="padding:28px;margin-bottom:26px;">
+        <h2 class="sub-title">一、设备技术参数</h2>
+        <table class="param-table">
+            <tr>
+                <td>温度源发生测量温度范围</td>
+                <td>(-10～100)℃</td>
+            </tr>
+            <tr>
+                <td>温场均匀性</td>
+                <td>≤0.05℃</td>
+            </tr>
+            <tr>
+                <td>温场波动性</td>
+                <td>≤0.05℃/10min</td>
+            </tr>
+            <tr>
+                <td>频率计测量范围</td>
+                <td>0-9999HZ</td>
+            </tr>
+            <tr>
+                <td>频率计测量精度</td>
+                <td>±0.1%</td>
+            </tr>
+            <tr>
+                <td>频率计读数分辨力</td>
+                <td>±1字</td>
+            </tr>
+            <tr>
+                <td>高精度直流稳压输出电压</td>
+                <td>（0～30）V</td>
+            </tr>
+            <tr>
+                <td>高精度直流稳压输出电流</td>
+                <td>5A</td>
+            </tr>
+            <tr>
+                <td>电源准确度等级</td>
+                <td>0.5级</td>
+            </tr>
+            <tr>
+                <td>电源稳定度</td>
+                <td>≤1%</td>
+            </tr>
+            <tr>
+                <td>模拟线路长度</td>
+                <td>2km</td>
+            </tr>
+            <tr>
+                <td>模拟线路准确度</td>
+                <td>0.5级</td>
+            </tr>
+        </table>
+    </div>
+
+    <!-- 二、装置特点 有序列表 -->
+    <div class="glass" style="padding:28px;">
+        <h2 class="sub-title">二、装置特点</h2>
+        <ol class="feature-list">
+            <li>该装置可以同时满足十台温度传感器的检定与检测工作。可以实现：温度传感器基本误差、重复性、响应时间、负载特性、报警误差及声级强度和绝缘强度等相关项目的检测试验项目。</li>
+            <li>浴场温度控制系统采用PCD---C5000型智能微控系统，是目前行业先进的制作工艺和设计方案，液晶显示，色彩鲜明，美观大方。温度采用“模糊PID控制技术”，国际领先，有更快的稳定时间和更好的温控精度，485通讯实现集控模式。</li>
+            <li>恒温浴场装有制冷系统，有效缩短温度下降时间，浴场还设有搅拌循环系统,确保浴场有较好的均匀性（满足0.05℃）和波动性（满足0.05℃/5min)。</li>
+            <li>装置外壳面板选用冷轧钢板制作（2mm）激光加工，韧性好，耐腐蚀。外加喷塑工艺，外壳美观大方。内部架构加不锈钢方管（20×20mm）加固，除有10个吊钩，外加五个平衡挂钩，满足不同厂家温度传感器测温元件能完全浸入浴场，便于检定作业。</li>
+            <li>装置配备四只频率表，其采用德国智能进口A/D技术芯片频率表，测量范围：0Hz---9999kHz（频率范围自适应可选）。稳定性好，测量精度高，抗干扰能力强。测量精度：±0.1%，读数分辨力±1字。</li>
+            <li>压线端子：4PIN 式，无氧铜触点，接触电阻≤0.00687Ω。</li>
+            <li>数字稳恒电源，具备恒流/恒压输出。输入电压220V±13%，输出电压18V±10%，输出功率50W,输出电流0-5.000A，连续稳定工作时间120h，具有过流、过压保护。</li>
+            <li>电路总控开关采用德力西断路器，对整个装置起到了过流、过压和漏电保护,保证操作人员的安全。</li>
+            <li>装置设置有LED工矿指示灯，恒温槽的工作状态实时监控，一目了然。</li>
+            <li>装置配备 USB接口，便于软件升级改进。</li>
+            <li>装置后部设有各恒温槽的排水管路，长时间不用，可以方便排放废水。</li>
+            <li>电压和电流表主要用来监测五个恒温槽的工作电压与电流，根据电流情况可以及时开启或关闭预热功能，确保用电安全。</li>
+            <li>各恒温槽温度、循环开启均可通过触摸屏直接控制，方便快捷。</li>
+        </ol>
+    </div>
+</div>
+
+<!-- 右下角永久悬浮返回按钮 -->
+<a href="product.html" class="float-back-home">返回产品列表</a>
+
+<div class="footer">
+©2026 山西泽佑达智控科技有限公司 矿用计量检定设备专业制造商 | 统一社会信用代码：91140110MAOLWELP73
+</div>
+
+<script>
+function goSearch(){
+    let val = document.getElementById('keyword').value.trim();
+    if(!val){alert("请输入产品关键词");return;}
+    window.location.href = "product.html?key="+encodeURIComponent(val);
+}
+</script>
+</body>
+</html>

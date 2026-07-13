@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>山西泽佑达智控科技有限公司 - 矿用计量检定设备服务商</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+    --main:#0F4C81;
+    --text-dark:#222;
+    --text-normal:#444;
+    --text-light:#777;
+    --bg-page:#F5F7FA;
+    --glass-bg: rgba(255,255,255,0.65);
+    --glass-border: rgba(228,231,237,0.5);
+    --blur: 12px;
+    --shadow: 0 1px 8px rgba(15,76,129,0.06);
+    --radius: 10px;
+}
+body{
+    font-family:"Microsoft YaHei",system-ui,-apple-system,sans-serif;
+    background:var(--bg-page);
+    color:var(--text-normal);
+    line-height:1.7;
+    padding-top:160px;
+}
+a{text-decoration:none;color:inherit}
+.container{
+    width:100%;
+    max-width:1360px;
+    margin:0 auto;
+    padding:0 24px;
+}
+.glass{
+    background:var(--glass-bg);
+    backdrop-filter: blur(var(--blur));
+    -webkit-backdrop-filter: blur(var(--blur));
+    border:1px solid var(--glass-border);
+    border-radius:var(--radius);
+    box-shadow:var(--shadow);
+}
+.top-fixed{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    z-index:99;
+}
+.top-bar{
+    background:var(--main);
+    color:#fff;
+    padding:14px 0;
+}
+.top-bar .container{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap:12px;
+}
+.company-brand{
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+.company-logo{
+    height:36px;
+    width:auto;
+    object-fit:contain;
+}
+.company-brand .cn{
+    font-size:22px;
+    font-weight:600;
+    letter-spacing:0.5px;
+    display:block;
+}
+.company-brand .en{
+    font-size:12px;
+    opacity:0.9;
+    margin-top:4px;
+    display:block;
+}
+.top-right{
+    display:flex;
+    align-items:center;
+    gap:24px;
+    flex-wrap:wrap;
+}
+.tel-item{
+    display:flex;
+    align-items:center;
+    gap:6px;
+    font-size:14px;
+}
+.tel-icon{
+    width:18px;height:18px;
+    background:#fff;
+    color:var(--main);
+    border-radius:50%;
+    display:inline-flex;
+    align-items:center;justify-content:center;
+    font-weight:bold;
+    font-size:12px;
+}
+.search-box{
+    display:flex;
+}
+.search-input{
+    width:170px;
+    height:34px;
+    padding:0 10px;
+    border:none;
+    outline:none;
+    border-radius:var(--radius) 0 0 var(--radius);
+    font-size:13px;
+}
+.search-btn{
+    height:34px;
+    padding:0 14px;
+    background:#083057;
+    color:#fff;
+    border:none;
+    border-radius:0 var(--radius) var(--radius) 0;
+    cursor:pointer;
+    font-size:13px;
+    transition:background 0.24s ease;
+}
+.search-btn:hover{background:#05203a}
+.nav-wrap{
+    padding:10px 0;
+}
+.nav-wrap .container.glass{
+    padding:12px;
+    display:flex;
+    align-items:center;
+    justify-content:space-evenly;
+}
+.nav-wrap a{
+    font-size:15px;
+    color:var(--text-dark);
+    padding:0 10px;
+    position:relative;
+    transition:color 0.24s;
+}
+.nav-wrap a:hover{color:var(--main)}
+.nav-wrap a:not(:last-child)::after{
+    content:"|";
+    color:#ccc;
+    position:absolute;
+    right:-14px;
+}
+.slider-bento{
+    width:100%;
+    height:68vh;
+    margin-top:40px;
+    margin-bottom:12px;
+    overflow:hidden;
+    position:relative;
+    background:#eee;
+    border-radius:var(--radius);
+}
+.slider-arrow{
+    position:absolute;
+    top:50%;
+    transform:translateY(-50%);
+    width:44px;
+    height:44px;
+    border-radius:50%;
+    background:rgba(0,0,0,0.35);
+    color:#fff;
+    border:none;
+    font-size:22px;
+    cursor:pointer;
+    opacity:0;
+    transition:opacity 0.3s;
+    z-index:10;
+}
+.slider-bento:hover .slider-arrow{
+    opacity:1;
+}
+.arrow-left{left:16px;}
+.arrow-right{right:16px;}
+.slider-arrow:hover{background:rgba(0,0,0,0.6);}
+.slider-wrap{width:100%;height:100%}
+.slider-item{
+    position:absolute;
+    width:100%;height:100%;
+    top:0;left:0;
+    opacity:0;
+    transition:opacity 1.2s ease;
+}
+.slider-item.active{opacity:1}
+.slider-item img{
+    width:100%;height:100%;
+    object-fit:contain;
+    background:#eee;
+    cursor:pointer;
+}
+.slider-dots{
+    position:absolute;
+    bottom:14px;
+    left:50%;
+    transform:translateX(-50%);
+    display:flex;
+    gap:9px;
+}
+.dot{
+    width:11px;height:11px;
+    border-radius:50%;
+    background:rgba(255,255,255,0.35);
+    cursor:pointer;
+    transition:background 0.2s;
+}
+.dot.active{background:#fff}
+.bento-grid{
+    max-width:1360px;
+    margin:0 auto 60px;
+    padding:0 24px;
+    display:grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap:24px;
+}
+.bento-pro{
+    grid-column: span 12;
+    padding:40px 20px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+}
+.pro-card-group{
+    display:flex;
+    gap:28px;
+    width:100%;
+    margin-top:20px;
+    opacity:0;
+    transform:translateY(32px);
+    transition:all 0.7s ease 0.3s;
+}
+.pro-card-group.show{opacity:1;transform:translateY(0)}
+.pro-card{
+    flex:1;
+    border-radius:var(--radius);
+    overflow:hidden;
+    background:var(--glass-bg);
+    backdrop-filter: blur(var(--blur));
+    border:1px solid var(--glass-border);
+}
+.pro-img{
+    width:100%;
+    height:240px;
+    object-fit:cover;
+    display:block;
+}
+.pro-name{
+    padding:16px 16px 8px;
+    font-size:17px;
+    font-weight:500;
+    text-align:center;
+    color:var(--text-dark);
+}
+.card-btn{
+    width:76%;
+    margin:8px auto 20px;
+    display:block;
+    text-align:center;
+    padding:9px 0;
+    background:var(--main);
+    color:#fff;
+    border-radius:var(--radius);
+    font-size:14px;
+    transition:background 0.24s;
+}
+.card-btn:hover{background:#083057}
+.more-btn{
+    width:240px;
+    margin-top:28px;
+    padding:13px 0;
+    text-align:center;
+    background:var(--main);
+    color:#fff;
+    border-radius:var(--radius);
+    font-size:16px;
+    transition:background 0.24s;
+}
+.more-btn:hover{background:#083057}
+.bento-honor{
+    grid-column: span 12;
+    padding:40px 20px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+}
+.honor-card-group{
+    display:flex;
+    gap:28px;
+    width:100%;
+    margin-top:20px;
+    opacity:0;
+    transform:translateY(32px);
+    transition:all 0.7s ease 0.3s;
+}
+.honor-card-group.show{opacity:1;transform:translateY(0)}
+.honor-card{
+    flex:1;
+    border-radius:var(--radius);
+    overflow:hidden;
+    background:var(--glass-bg);
+    backdrop-filter: blur(var(--blur));
+    border:1px solid var(--glass-border);
+}
+.honor-img{
+    width:100%;
+    height:240px;
+    object-fit:cover;
+    display:block;
+}
+.honor-name{
+    padding:16px 16px 8px;
+    font-size:16px;
+    font-weight:500;
+    text-align:center;
+    color:var(--text-dark);
+}
+.honor-btn{
+    width:76%;
+    margin:8px auto 20px;
+    display:block;
+    text-align:center;
+    padding:9px 0;
+    background:var(--main);
+    color:#fff;
+    border-radius:var(--radius);
+    font-size:14px;
+    transition:background 0.24s;
+}
+.honor-btn:hover{background:#083057}
+.bento-about{
+    grid-column: span 12;
+    padding:40px 20px;
+    min-height:420px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+}
+/* 关于我们 左右图文布局 */
+.about-wrap{
+    display:flex;
+    width:100%;
+    max-width:960px;
+    align-items:center;
+    gap:40px;
+    margin-top:20px;
+}
+.about-img-box{
+    flex:0 0 320px;
+}
+.about-img{
+    width:100%;
+    border-radius:var(--radius);
+}
+.about-text-box{
+    flex:1;
+}
+.about-text{
+    font-size:16px;
+    text-align:justify;
+    line-height:2;
+}
+.about-detail-btn{
+    width:240px;
+    margin-top:28px;
+    padding:13px 0;
+    text-align:center;
+    background:var(--main);
+    color:#fff;
+    border-radius:var(--radius);
+    font-size:16px;
+    transition:background 0.24s;
+}
+.about-detail-btn:hover{background:#083057}
+.bento-contact{grid-column: span 12;padding:40px 20px;min-height:320px}
+.block-title-box{
+    text-align:center;
+    margin-bottom:36px;
+    opacity:0;
+    transform:translateY(32px);
+    transition:all 0.7s ease;
+}
+.block-title-box.show{opacity:1;transform:translateY(0)}
+.block-cn{
+    font-size:30px;
+    font-weight:600;
+    color:var(--text-dark);
+    display:block;
+}
+.block-en{
+    font-size:13px;
+    color:var(--text-light);
+    margin-top:6px;
+    display:block;
+}
+.block-desc{
+    max-width:960px;
+    text-align:center;
+    font-size:16px;
+    opacity:0;
+    transform:translateY(32px);
+    transition:all 0.7s ease 0.2s;
+}
+.block-desc.show{opacity:1;transform:translateY(0)}
+.footer{
+    background:var(--text-dark);
+    color:#ccc;
+    text-align:center;
+    padding:28px 16px;
+    font-size:12px;
+    line-height:1.8;
+}
+@media screen and (max-width:992px){
+    .bento-honor,.bento-pro,.bento-about{grid-column: span 12}
+    .pro-card-group,.honor-card-group{flex-direction:column}
+    .bento-about .about-wrap{flex-direction:column}
+    .about-img-box{flex:none;width:280px}
+}
+@media screen and (max-width:768px){
+    body{padding-top:180px;}
+    .nav-wrap .container.glass{flex-wrap:wrap;height:auto;padding:10px 0;gap:8px}
+    .nav-wrap a{font-size:14px}
+    .block-cn{font-size:26px}
+    .company-brand .cn{font-size:19px}
+    .slider-bento{height:52vh;margin-top:30px;}
+    .slider-arrow{display:none;}
+    .company-logo{height:28px;}
+}
+/* 导航下拉菜单样式 */
+.nav-wrap{padding:10px 0;background:#fff;}
+.nav-wrap .container{max-width:1360px;margin:0 auto;padding:0 24px;display:flex;justify-content:center;gap:10px;}
+.nav-item{
+    position:relative;
+    padding:10px 16px;
+    font-size:15px;
+    color:var(--text-dark);
+    cursor:pointer;
+}
+.nav-item:hover{color:var(--main);}
+/* 下拉子菜单 动画缓慢弹出收起 */
+.sub-menu{
+    position:absolute;
+    left:0;
+    top:100%;
+    width:180px;
+    background:#fff;
+    border-radius:var(--radius);
+    box-shadow:0 4px 12px rgba(0,0,0,0.1);
+    padding:10px 0;
+    opacity:0;
+    transform:translateY(-8px);
+    visibility:hidden;
+    transition:all 0.3s ease;
+    z-index:100;
+}
+.nav-item:hover .sub-menu{
+    opacity:1;
+    transform:translateY(0);
+    visibility:visible;
+}
+.sub-menu a{
+    display:block;
+    padding:9px 20px;
+    font-size:14px;
+    transition:background 0.2s;
+}
+.sub-menu a:hover{background:#f0f5fc;color:var(--main);}
+@media screen and (max-width:768px){
+    .nav-wrap .container{flex-wrap:wrap;height:auto;padding:10px 0;gap:8px}
+    .nav-item{padding:8px 12px;font-size:14px}
+    .sub-menu{width:140px;}
+}
+</style>
+</head>
+<body>
+<div class="top-fixed">
+    <div class="top-bar">
+        <div class="container">
+            <div class="company-brand">
+                <img class="company-logo" src="img/logo.jpg" alt="公司logo">
+                <div>
+                    <span class="cn">山西泽佑达智控科技有限公司</span>
+                    <span class="en">Shanxi Zeyouda Intelligent Control Technology Co., Ltd.</span>
+                </div>
+            </div>
+            <div class="top-right">
+                <div class="tel-item">
+                    <span class="tel-icon">☎</span>
+                    <span>18335178154</span>
+                </div>
+                <div class="search-box">
+                    <input class="search-input" id="keyword" placeholder="搜索产品">
+                    <button class="search-btn" onclick="goSearch()">搜索</button>
+                </div>
+            </div>
+        </div>
+    </div>
+        <div class="nav-wrap">
+        <div class="container glass">
+            <div class="nav-item">
+                <a href="index.html">首页</a>
+            </div>
+            <div class="nav-item">
+                产品中心
+                <div class="sub-menu">
+                    <a href="product.html#gas">矿用气体检测仪</a>
+                    <a href="product.html#sensor">专用传感器</a>
+                    <a href="product.html#calibrator">气体校准设备</a>
+                    <a href="product.html#selfrescuer">自救器检测装置</a>
+                </div>
+            </div>
+            <div class="nav-item">
+                荣誉资质
+                <div class="sub-menu">
+                    <a href="honor-list.html">全部荣誉资质</a>
+                    <a href="honor-aaa.html">AAA信用资质</a>
+                    <a href="honor-zlgl.html">质量管理体系认证</a>
+                    <a href="honor-patent.html">实用新型专利</a>
+                    <a href="honor-soft.html">软件著作权</a>
+                </div>
+            </div>
+            <div class="nav-item">
+                <a href="tech-news.html">技术动态</a>
+            </div>
+            <div class="nav-item">
+                关于泽佑达
+                <div class="sub-menu">
+                    <a href="about-us.html">公司简介</a>
+                    <a href="about-us.html#yingye">企业营业执照</a>
+                    <a href="about-us.html#team">研发团队</a>
+                    <a href="about-us.html#factory">生产厂区</a>
+                </div>
+            </div>
+            <div class="nav-item">
+                <a href="#contact">联系我们</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="slider-bento glass">
+        <button class="slider-arrow arrow-left" id="prevSlideBtn">&lt;</button>
+        <button class="slider-arrow arrow-right" id="nextSlideBtn">&gt;</button>
+        <div class="slider-wrap">
+            <div class="slider-item active">
+                <img src="img/yanwuchuanganqi.png" alt="烟雾传感器检定" onclick="location.href='product.html'">
+            </div>
+            <div class="slider-item">
+                <img src="img/kuangyongwenduchuanganqi.png" alt="矿用温度传感器检定装置" onclick="location.href='product.html'">
+            </div>
+            <div class="slider-item">
+                <img src="img/qiti.png" alt="气体扩散箱" onclick="location.href='product.html'">
+            </div>
+        </div>
+        <div class="slider-dots">
+            <span class="dot" onclick="switchSlide(0)"></span>
+            <span class="dot" onclick="switchSlide(1)"></span>
+            <span class="dot" onclick="switchSlide(2)"></span>
+        </div>
+    </div>
+</div>
+
+<div class="bento-grid">
+    <section id="product" class="bento-pro glass">
+        <div class="block-title-box">
+            <span class="block-cn">产品中心</span>
+            <span class="block-en">Product Center</span>
+        </div>
+        <div class="pro-card-group">
+            <div class="pro-card">
+                <img class="pro-img" src="img/yanwuchuanganqi.png" alt="烟雾传感器检定">
+                <div class="pro-name">烟雾传感器检定</div>
+                <a class="card-btn" href="yanwu-device.html">查看设备详情</a>
+            </div>
+            <div class="pro-card">
+                <img class="pro-img" src="img/kuangyongwenduchuanganqi.png" alt="矿用温度传感器检定装置">
+                <div class="pro-name">矿用温度传感器检定装置</div>
+                <a class="card-btn" href="wendu-device.html">查看设备详情</a>
+            </div>
+            <div class="pro-card">
+                <img class="pro-img" src="img/qiti.png" alt="气体扩散箱">
+                <div class="pro-name">气体扩散箱</div>
+                <a class="card-btn" href="kuangqi-device.html">查看设备详情</a>
+            </div>
+        </div>
+        <a href="product.html" class="more-btn">查看更多</a>
+    </section>
+
+    <section id="honor" class="bento-honor glass">
+        <div class="block-title-box">
+            <span class="block-cn">荣誉资质</span>
+            <span class="block-en">Honor & Qualification</span>
+        </div>
+        <div class="honor-card-group">
+            <div class="honor-card">
+                <img class="honor-img" src="img/zlgl.png" alt="质量管理体系认证证书">
+                <div class="honor-name">质量管理体系认证证书</div>
+                <a class="honor-btn" href="honor-zlgl.html">查看详情</a>
+            </div>
+            <div class="honor-card">
+                <img class="honor-img" src="img/a.png" alt="企业信用 AAA 评级">
+                <div class="honor-name">企业信用 AAA 评级</div>
+                <a class="honor-btn" href="honor-aaa.html">查看详情</a>
+            </div>
+            <div class="honor-card">
+                <img class="honor-img" src="img/f.png" alt="专利证书">
+                <div class="honor-name">专利证书</div>
+                <a class="honor-btn" href="honor-patent.html">查看详情</a>
+            </div>
+            <div class="honor-card">
+                <img class="honor-img" src="img/n.png" alt="计算机软件著作权登记证书">
+                <div class="honor-name">计算机软件著作权登记证书</div>
+                <a class="honor-btn" href="honor-soft.html">查看详情</a>
+            </div>
+        </div>
+        <a href="honor-list.html" class="more-btn">查看更多资质</a>
+    </section>
+
+    <section id="about" class="bento-about glass">
+        <div class="block-title-box">
+            <span class="block-cn">关于泽佑达</span>
+            <span class="block-en">About Zeyouda</span>
+        </div>
+        <!-- 左侧logo图片 + 右侧两端对齐精简文字 -->
+        <div class="about-wrap">
+            <div class="about-img-box">
+                <img class="about-img" src="img/logo.jpg" alt="企业logo">
+            </div>
+            <div class="about-text-box">
+                <p class="about-text">山西泽佑达智控坐落太原晋源区，主营矿山计量检定设备研发、实验室建标辅导、仪器维修及技术培训综合服务。公司拥有专业技术团队，自主研发三十余款矿用智能检定设备，第六代触屏机型操作简便、稳定性突出。注册资本200万元，长期服务省内多家矿山与计量机构，设备与配套技术服务广受客户认可。</p>
+            </div>
+        </div>
+        <a href="about-us.html" class="about-detail-btn">详情</a>
+    </section>
+
+    <!-- 联系我们 方案二图标分栏 -->
+    <section id="contact" class="bento-contact glass">
+        <div class="block-title-box">
+            <span class="block-cn">联系我们</span>
+            <span class="block-en">Contact Us</span>
+        </div>
+        <div style="width:100%;max-width:960px;margin-top:24px;">
+            <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:26px;">
+                <div style="text-align:center;padding:16px 10px;">
+                    <div style="width:50px;height:50px;margin:0 auto 12px;background:var(--main);border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-size:22px;">☎</div>
+                    <h4 style="font-size:17px;margin-bottom:8px;color:var(--text-dark)">销售咨询</h4>
+                    <p>张经理：18335178154</p>
+                    <p>朱经理：18634327476</p>
+                    <p>李经理：13593180962</p>
+                </div>
+                <div style="text-align:center;padding:16px 10px;">
+                    <div style="width:50px;height:50px;margin:0 auto 12px;background:var(--main);border-radius:50%;display:flex;align-items:center;color:#fff;font-size:22px;">🏢</div>
+                    <h4 style="font-size:17px;margin-bottom:8px;color:var(--text-dark)">公司地址</h4>
+                    <p style="line-height:1.8;">太原市晋源区<br>丰沃悦湖城东区8-1-2801</p>
+                </div>
+                <div style="text-align:center;padding:16px 10px;">
+                    <div style="width:50px;height:50px;margin:0 auto 12px;background:var(--main);border-radius:50%;display:flex;align-items:center;color:#fff;font-size:22px;">📩</div>
+                    <h4 style="font-size:17px;margin-bottom:8px;">业务范围</h4>
+                    <p>矿用传感器检定设备<br>计量实验室成套方案</p>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+<div class="footer">
+©2026 山西泽佑达智控科技有限公司 矿用计量检定设备专业制造商 | 统一社会信用代码：91140110MAOLWELP73
+</div>
+
+<script>
+function goSearch(){
+    let val = document.getElementById('keyword').value.trim();
+    if(!val){alert("请输入产品关键词");return}
+    window.location.href = "product.html?key="+encodeURIComponent(val);
+}
+let items = document.querySelectorAll('.slider-item');
+let dots = document.querySelectorAll('.dot');
+let cur = 0;
+let timer;
+function switchSlide(num){
+    clearInterval(timer);
+    items[cur].classList.remove('active');
+    dots[cur].classList.remove('active');
+    cur = num;
+    items[cur].classList.add('active');
+    dots[cur].classList.add('active');
+    timer = setInterval(autoSlide,5000);
+}
+function autoSlide(){
+    items[cur].classList.remove('active');
+    dots[cur].classList.remove('active');
+    cur = (cur+1) % items.length;
+    items[cur].classList.add('active');
+    dots[cur].classList.add('active');
+}
+timer = setInterval(autoSlide,5000);
+document.getElementById('nextSlideBtn').addEventListener('click',()=>{
+    switchSlide((cur + 1) % items.length);
+})
+document.getElementById('prevSlideBtn').addEventListener('click',()=>{
+    switchSlide((cur - 1 + items.length) % items.length);
+})
+const observeList = document.querySelectorAll('.block-title-box,.block-desc,.pro-card-group,.honor-card-group');
+const io = new IntersectionObserver(entries=>{
+    entries.forEach(item=>{
+        if(item.isIntersecting) item.target.classList.add('show');
+    })
+},{threshold:0.18});
+observeList.forEach(el=>io.observe(el));
+</script>
+</body>
+</html>

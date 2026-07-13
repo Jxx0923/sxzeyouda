@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>关于泽佑达 - 山西泽佑达智控科技有限公司</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+    --main:#0F4C81;
+    --text-dark:#222;
+    --text-normal:#444;
+    --text-light:#777;
+    --bg-page:#F5F7FA;
+    --glass-bg: rgba(255,255,255,0.65);
+    --glass-border: rgba(228,231,237,0.5);
+    --blur: 12px;
+    --shadow: 0 1px 8px rgba(15,76,129,0.06);
+    --radius: 10px;
+}
+body{
+    font-family:"Microsoft YaHei",system-ui,-apple-system,sans-serif;
+    background:var(--bg-page);
+    color:var(--text-normal);
+    line-height:1.8;
+    padding-top:160px;
+}
+a{text-decoration:none;color:inherit}
+.container{
+    width:100%;
+    max-width:1360px;
+    margin:0 auto;
+    padding:0 24px;
+}
+.glass{
+    background:var(--glass-bg);
+    backdrop-filter: blur(var(--blur));
+    -webkit-backdrop-filter: blur(var(--blur));
+    border:1px solid var(--glass-border);
+    border-radius:var(--radius);
+    box-shadow:var(--shadow);
+}
+.top-fixed{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    z-index:99;
+}
+.top-bar{
+    background:var(--main);
+    color:#fff;
+    padding:14px 0;
+}
+.top-bar .container{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap:12px;
+}
+.company-brand{
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+.company-logo{
+    height:36px;
+    width:auto;
+    object-fit:contain;
+}
+.company-brand .cn{
+    font-size:22px;
+    font-weight:600;
+}
+.company-brand .en{
+    font-size:12px;
+    opacity:0.9;
+    margin-top:4px;
+    display:block;
+}
+.top-right{
+    display:flex;
+    align-items:center;
+    gap:24px;
+    flex-wrap:wrap;
+}
+.tel-item{
+    display:flex;
+    align-items:center;
+    gap:6px;
+    font-size:14px;
+}
+.tel-icon{
+    width:18px;height:18px;
+    background:#fff;
+    color:var(--main);
+    border-radius:50%;
+    display:inline-flex;
+    align-items:center;justify-content:center;
+}
+.search-box{
+    display:flex;
+}
+.search-input{
+    width:170px;
+    height:34px;
+    padding:0 10px;
+    border:none;
+    outline:none;
+    border-radius:var(--radius) 0 0 var(--radius);
+    font-size:13px;
+}
+.search-btn{
+    height:34px;
+    padding:0 14px;
+    background:#083057;
+    color:#fff;
+    border:none;
+    border-radius:0 var(--radius) var(--radius) 0;
+    cursor:pointer;
+}
+.search-btn:hover{background:#05203a}
+.nav-wrap{
+    padding:10px 0;
+}
+.nav-wrap .container.glass{
+    padding:12px;
+    display:flex;
+    align-items:center;
+    justify-content:space-evenly;
+}
+.nav-wrap a{
+    font-size:15px;
+    color:var(--text-dark);
+    padding:0 10px;
+    position:relative;
+}
+.nav-wrap a:hover{color:var(--main)}
+.nav-wrap a:not(:last-child)::after{
+    content:"|";
+    color:#ccc;
+    position:absolute;
+    right:-14px;
+}
+/* 页面主体通用 */
+.page-wrap{
+    max-width:1100px;
+    margin:40px auto 60px;
+}
+.page-title{
+    text-align:center;
+    font-size:34px;
+    font-weight:600;
+    color:var(--text-dark);
+    margin-bottom:40px;
+}
+.section-box{
+    padding:36px;
+    margin-bottom:30px;
+}
+.section-title{
+    font-size:24px;
+    color:var(--main);
+    font-weight:600;
+    margin-bottom:24px;
+    border-left:4px solid var(--main);
+    padding-left:12;
+}
+.text-p{
+    font-size:16px;
+    text-align:justify;
+    margin-bottom:16px;
+}
+.slogan-box{
+    text-align:center;
+    font-size:20px;
+    font-weight:600;
+    color:var(--main);
+    letter-spacing:2px;
+    margin:30px 0;
+}
+/* 产品分类列表 */
+.pro-group{
+    margin-top:16px;
+}
+.pro-type{
+    font-size:18px;
+    font-weight:600;
+    margin:20px 0 10px;
+}
+.pro-list{
+    padding-left:22px;
+    line-height:2;
+}
+/* 营业执照图文布局 */
+.license-wrap{
+    display:flex;
+    gap:30px;
+    align-items:center;
+    margin-top:20px;
+}
+.license-img{
+    flex:0 0 420px;
+}
+.license-img img{
+    width:100%;
+    border-radius:var(--radius);
+}
+.license-text{
+    flex:1;
+}
+.back-home{
+    display:block;
+    width:220px;
+    text-align:center;
+    padding:12px 0;
+    background:var(--main);
+    color:#fff;
+    border-radius:var(--radius);
+    margin:40px auto 0;
+    font-size:16px;
+}
+.back-home:hover{background:#083057}
+.footer{
+    background:var(--text-dark);
+    color:#ccc;
+    text-align:center;
+    padding:28px 16px;
+    font-size:12px;
+}
+/* 移动端适配 */
+@media screen and (max-width:768px){
+    body{padding-top:180px;}
+    .nav-wrap .container.glass{flex-wrap:wrap;height:auto;padding:10px 0;gap:8px}
+    .company-brand .cn{font-size:19px}
+    .company-logo{height:28px;}
+    .page-wrap{padding:0 12px;}
+    .section-box{padding:24px;}
+    .license-wrap{flex-direction:column;}
+    .license-img{width:100%;flex:none;}
+    .page-title{font-size:28px;}
+    .section-title{font-size:20px;}
+}
+</style>
+</head>
+<body>
+<!-- 顶部固定导航栏（全部可跳转链接） -->
+<div class="top-fixed">
+    <div class="top-bar">
+        <div class="container">
+            <div class="company-brand">
+                <img class="company-logo" src="img/logo.jpg" alt="企业logo">
+                <div>
+                    <span class="cn">山西泽佑达智控科技有限公司</span>
+                    <span class="en">Shanxi Zeyouda Intelligent Control Technology Co., Ltd.</span>
+                </div>
+            </div>
+            <div class="top-right">
+                <div class="tel-item">
+                    <span class="tel-icon">☎</span>
+                    <span>18335178154</span>
+                </div>
+                <div class="search-box">
+                    <input class="search-input" id="keyword" placeholder="搜索产品">
+                    <button class="search-btn" onclick="goSearch()">搜索</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="nav-wrap">
+    <div class="container glass">
+        <a href="index.html">首页</a>
+        <a href="product.html">产品中心</a>
+        <a href="honor-list.html">荣誉资质</a>
+        <a href="tech-news.html">技术动态</a>
+        <a href="about-us.html">关于泽佑达</a>
+        <a href="index.html#contact">联系我们</a>
+    </div>
+        </div>
+    </div>
+</div>
+
+<div class="page-wrap">
+    <h1 class="page-title">关于泽佑达智控科技</h1>
+
+    <!-- 板块1：企业概况 -->
+    <div class="section-box glass">
+        <h2 class="section-title">企业概况</h2>
+        <p class="text-p">山西泽佑达智控科技有限公司成立于2023年01月04日，注册地址位于山西省太原市晋源区，注册资本贰佰万元整，是专注矿山计量检定校准设备研发、技术服务于一体的综合性高新配套企业。</p>
+        <p class="text-p">依托山西丰富煤炭资源与成熟矿山产业链，公司主营矿山设备制造、仪器仪表研发、计量实验室全套技术服务，业务覆盖计量建标辅导、CNAS体系咨询、设备维修、专业人员培训、资质申报资料编制等全链条服务。</p>
+        <p class="text-p">公司组建专业研发与技术服务团队，自主研发三十余款矿用智能检定设备，第六代触屏机型人机交互友好、运行稳定可靠。成立至今，已服务太原、吕梁、晋中、阳泉、临汾二十余家矿山集团、社会计量机构、政府计量单位，产品与配套技术广受客户认可。</p>
+        <p class="text-p">经营范围涵盖矿山机械、专用计量设备、电子元器件销售；仪器仪表制造；技术开发、技术咨询、设备维修等多项合规经营类目，具备完整生产与技术服务资质。</p>
+    </div>
+
+    <!-- 板块2：企业文化 -->
+    <div class="section-box glass">
+        <h2 class="section-title">企业文化</h2>
+        <div class="slogan-box">诚信立业 · 创新发展 · 精益求精 · 务实共赢</div>
+        <p class="text-p">企业始终以客户实际需求为核心，以设备质量与技术实力为根基，持续迭代矿用检定装置软硬件方案，不断优化实验室配套一站式服务，助力省内各大矿山与计量机构标准化、数字化升级。</p>
+        <p class="text-p">坚持自主研发创新，持有多项专利、软件著作权，重视技术人才培养，持续完善废气防护、智能自动化检定核心技术，兼顾设备安全、使用效率与长期运维便捷性。</p>
+    </div>
+
+    <!-- 板块3：主营设备产品分类 -->
+    <div class="section-box glass">
+        <h2 class="section-title">主营检定设备系列</h2>
+        <div class="pro-group">
+            <div class="pro-type">一、气体类检定装置（12款）</div>
+            <div class="pro-list">
+                主推型、便携式、标准型、车载拉杆便携式、煤矿用高低浓度甲烷传感器检定装置、载体催化燃烧式甲烷语音自动快速检定装置、矿用硫化氢气体报警仪检定装置及下排风技术措施、便携式多功能气体检定装置、多功能气体报警仪语音自动检定装置、多功能台式矿用气体传感器自动化检定装置 p20、多功能台式矿用气体传感器自动化检定装置 p26、光干涉甲烷测定器检定装置
+            </div>
+
+            <div class="pro-type">二、矿用专用传感器检测设备（5款）</div>
+            <div class="pro-list">
+                烟雾传感器检定、压力 \ 液位传感器检定装置、矿用温度传感器检定装置、气体扩散箱、开停传感器检测装置
+            </div>
+
+            <div class="pro-type">三、自救器检测设备（2款）</div>
+            <div class="pro-list">
+                自救器智能多参数综合检测装置、自救器用氢氧化钙检测装置
+            </div>
+        </div>
+        <p class="text-p">全系第六代数字化触摸屏智能检定设备，搭载独立气路、废气监测、泄漏声光断电保护功能，满足国家JJG、MT行业检定规程，支持8-16通道同步检定，自动化程度高，大幅降低人工操作成本。</p>
+    </div>
+
+    <!-- 板块4：企业资质 营业执照 -->
+    <div class="section-box glass">
+        <h2 class="section-title">企业资质-营业执照</h2>
+        <div class="license-wrap">
+            <div class="license-img">
+                <img src="img/yingyezhizhao.png" alt="营业执照">
+            </div>
+            <div class="license-text">
+                <p class="text-p">统一社会信用代码：91140110MAOLWELP73</p>
+                <p class="text-p">法定代表人：杨帆</p>
+                <p class="text-p">成立日期：2023年01月04日</p>
+                <p class="text-p">注册资本：贰佰万圆整</p>
+                <p class="text-p">注册地址：山西省太原市晋源区金胜镇西寨南街丰沃悦湖城东区8-1-2801号</p>
+                <p class="text-p">经营品类包含矿山计量设备研发制造、仪器仪表销售、计量技术服务、设备维修等全相关业务。</p>
+            </div>
+        </div>
+    </div>
+
+    <a href="index.html" class="back-home">返回首页</a>
+</div>
+
+<div class="footer">
+©2026 山西泽佑达智控科技有限公司 矿用计量检定设备专业制造商 | 统一社会信用代码：91140110MAOLWELP73
+</div>
+
+<script>
+function goSearch(){
+    let val = document.getElementById('keyword').value.trim();
+    if(!val){alert("请输入关键词");return}
+    location.href="product.html?key="+encodeURIComponent(val);
+}
+</script>
+</body>
+</html>
